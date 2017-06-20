@@ -142,6 +142,9 @@ export default Component.extend({
     }
 
     options.onSlideChangeEnd = this.slideChanged.bind(this);
+    options.onSlideChangeStart = this.slideChangedStart.bind(this);
+    options.onTouchStart = this.slideTouchStart.bind(this);
+    options.onTouchEnd = this.slideTouchEnd.bind(this);
 
     return options;
   }),
@@ -162,6 +165,24 @@ export default Component.extend({
 
     if (this.get('onChange')) {
       this.sendAction('onChange', swiper.slides[swiper.activeIndex]);
+    }
+  },
+
+  slideChangedStart: function(swiper) {
+    if (this.get('onChangeStart')) {
+      this.sendAction('onChangeStart', swiper);
+    }
+  },
+
+  slideTouchStart: function(swiper) {
+    if (this.get('onTouchStart')) {
+      this.sendAction('onTouchStart', swiper);
+    }
+  },
+
+  slideTouchEnd: function(swiper) {
+    if (this.get('onTouchEnd')) {
+      this.sendAction('onTouchEnd', swiper);
     }
   },
 
