@@ -124,6 +124,10 @@ export default Component.extend({
       options.autoplayDisableOnInteraction = this.get('autoplayDisableOnInteraction');
     }
 
+    if (typeof(this.get('resistanceRatio')) === 'number') {
+      options.resistanceRatio = this.get('resistanceRatio');
+    }
+
     // basic support for 'effect' API
     let effect = this.get('effect');
     if (effect && effect !== 'slide') {
