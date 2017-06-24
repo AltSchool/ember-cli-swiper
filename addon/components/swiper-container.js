@@ -128,6 +128,10 @@ export default Component.extend({
       options.resistanceRatio = this.get('resistanceRatio');
     }
 
+    if (this.get('parallax')) {
+      options.parallax = this.get('parallax');
+    }
+
     // basic support for 'effect' API
     let effect = this.get('effect');
     if (effect && effect !== 'slide') {
